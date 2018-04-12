@@ -1,0 +1,18 @@
+﻿{
+    "Name": "MarvalBaltic.Plugins.RequestErrorHandler",
+    "Organisation": "Marval Baltic",
+    "DisplayName": "Request Error Handler",
+    "Icon": "request_error_16.png",
+    "Version": "1.7.0",
+    "SupportedVersions": [
+        "14.10.2",
+        "14.10.1",
+        "14.10.0"
+    ],
+    "Pages": [
+        "Request.aspx"
+    ],
+    "HtmlImportFile": "request_error_handler.html",
+    "TagName": "marval-baltic-plugins-request-error-handler",
+    "GlobalSettings": []
+}

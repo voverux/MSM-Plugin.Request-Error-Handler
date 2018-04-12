@@ -1,0 +1,42 @@
+﻿<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script src="Template.js"></script>
+<script>
+    (function () {
+        var MarvalSoftware = window.top.MarvalSoftware;
+        var $ = window.top.$;
+        MarvalSoftware.Plugins.define(
+			"marval-baltic-plugins-request-error-handler",
+            {
+				_autoRedirect: false,
+                init: function () {
+					var err = $("#container > #content > #innerContent > div.error");
+					if(err.length>0){
+						err.parent().hide();
+						var err_title = $("h1",err).text();
+						var err_text = $(".content > .description",err).html();
+						if(this._autoRedirect && this._autoRedirect==true) {
+							err_text += "<br/><p>You will be redirected to the home page automatically...</p>";
+							setTimeout(function(){MarvalSoftware.UI.Dom.trySetLocationHRef(MarvalSoftware.UI.WebHelper.getApplicationPath());},10000);
+						}
+						MarvalSoftware.UI.MessageBox.show(
+							err_title,
+							err_text,
+							MarvalSoftware.UI.MessageBox.Types.ALERT,
+							[MarvalSoftware.UI.MessageBox.Buttons.OK],
+							null,
+							600,
+							MarvalSoftware.createDelegate(
+								function (sender, e) {
+									if (e.button == MarvalSoftware.UI.MessageBox.Buttons.OK) {
+										MarvalSoftware.UI.Dom.trySetLocationHRef(MarvalSoftware.UI.WebHelper.getApplicationPath());
+									}
+								}
+								, this
+							)
+						);
+					}
+                }
+            }
+		);
+    })();
+</script>
