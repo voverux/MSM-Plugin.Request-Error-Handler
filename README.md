@@ -6,7 +6,7 @@ This MSM system plugin displays error message alert instead of static error page
 
 | Plugin  | MSM               |
 |---------|-------------------|-----------------
-| 1.7     | 14.10.0 - 14.10.2 |
+| 1.9     | 14.10.0 - 14.10.2 |
 
 ## Installation
 

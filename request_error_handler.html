@@ -18,13 +18,16 @@
 							err_text += "<br/><p>You will be redirected to the home page automatically...</p>";
 							setTimeout(function(){MarvalSoftware.UI.Dom.trySetLocationHRef(MarvalSoftware.UI.WebHelper.getApplicationPath());},10000);
 						}
+						err_text=err_text.replace('<pre ','<pre style="overflow:auto;" ');
+						err_text=err_text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+						err_text='<div style="width:700px;white-space: normal;">'+err_text+'</div>';
 						MarvalSoftware.UI.MessageBox.show(
 							err_title,
 							err_text,
 							MarvalSoftware.UI.MessageBox.Types.ALERT,
 							[MarvalSoftware.UI.MessageBox.Buttons.OK],
 							null,
-							600,
+							800,
 							MarvalSoftware.createDelegate(
 								function (sender, e) {
 									if (e.button == MarvalSoftware.UI.MessageBox.Buttons.OK) {
